@@ -5,13 +5,15 @@ const pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: 'jamb116',
-    database: 'sistemaventas',
+    database: 'localizacioncr',
     insecureAuth: true,
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
 });
-pool.connect((err) => {
+
+
+pool.getConnection(function(err, connection) {
     if (err) {
         console.log(err);
     } else {
