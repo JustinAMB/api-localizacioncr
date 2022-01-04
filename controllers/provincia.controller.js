@@ -1,10 +1,9 @@
 import db from '../database';
 
 
-
-
 export const getProvincias = (req, res) => {
-    db.query('SELECT * FROM provincias', (err, result) => {
+    db.query('call ListaProvincias()', (err, result) => {
+        console.log(result[0]);
         if (err) {
             return res.status(500).json({
                 ok: false,
@@ -13,7 +12,7 @@ export const getProvincias = (req, res) => {
         }
         res.json({
             ok: true,
-            result
+            data: result[0]
         });
     });
 };
