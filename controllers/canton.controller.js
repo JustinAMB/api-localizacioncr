@@ -4,10 +4,8 @@ import db from '../database';
 
 export const getCantones = (req, res) => {
 
-
-
-    const provincia = req.params;
-    console.log(provincia);
+    const { provincia } = req.params;
+    console.log(provincia.provincia);
     db.query('call ListaCantones(?)', [provincia], (err, result) => {
         console.log(result[0]);
         if (err) {
